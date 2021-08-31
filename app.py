@@ -24,7 +24,7 @@ def home():
 
 @app.route("/board/")
 def board():
-    writings = mongo.db.essays.find()
+    writings = list(mongo.db.essays.find().sort("title", 1))
     return render_template('board.html', writings=writings)
 
 

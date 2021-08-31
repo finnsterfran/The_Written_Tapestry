@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
-    <section class="writings">
-        {% for writing in writings %}
+    <section>
+        {% for entry in writings %}
             <div class="row">
-                <div class="col s12 m6 post">
-                    <div class="card brown lighten-5">
-                        <span class="card-title">{{ writing.title }}</span>
-                        <p></p>
-                    </div>
+                <div class="col s12 m10 offset-m1 post">
+                    <div class="card brown lighten-5 post-card">
+                        <span class="card-title card-writing">{{ entry.title }}</span>
+                        <div class="divider"></div>
+                            <p class="writing">{{ entry.author }}</p>
+                            <p class="writing">{{ entry.category }}</p>
+                            <p class="writing">{{ entry.date }}</p>
+                            <p class="writing">{{ entry.composition }}
+                        </div>
                     <div class="card-action">
                         <a href="#" class="post-link"></a>
                     </div>

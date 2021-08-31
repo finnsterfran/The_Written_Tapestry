@@ -56,3 +56,15 @@ h2 {
 .copyright {
     padding-bottom: 30px;
 }
+
+.post-card {
+    padding: 15px;
+}
+
+.writing {
+    font-size: 1rem;
+}
+
+.card-writing {
+    text-align: center;
+}
