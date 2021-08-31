@@ -35,19 +35,21 @@
                     <i class="fas fa-bars"></i>
                 </a>
                 <ul class="right hide-on-med-and-down">
-                    <li>
-                        <a href="{{ url_for('home') }}" class="black-text">
-                            <i class="fas fa-feather-alt"></i>
-                            home
-                        </a>
-                    </li>
+                    <li><a href="{{ url_for('home') }}" class="black-text">
+                            <i class="fas fa-feather-alt"></i> home</a></li>
+                    <li><a href="{{ url_for('board') }}" class="black-text">
+                            <i class="fas fa-feather-alt"></i> board</a></li>
+                    <li><a href="{{ url_for('register') }}" class="black-text">
+                            <i class="fas fa-feather-alt"></i> register</a></li>
                 </ul>
             </div>
         </nav>
     <!--Mobile SideBar-->
         <ul class="sidenav" id="mobile-demo">
             <li>
-                <a href="{{ url_for('home') }}" class="black-text"></a>
+                <a href="{{ url_for('home') }}" class="black-text"> home</a>
+                <a href="{{ url_for('board') }}" class="black-text"> board</a>
+                <a href="{{ url_for('register') }}" class="black-text"> register</a>
             </li>
         </ul>
 </header>
@@ -79,13 +81,13 @@
             </div>
         </div>
     </div>
-    <div class="footer-copyright">
+    
         <div class="container copyright">
             <p class="center-align brown-text text-darken-2">
                 Copyright &copy; Frannie Yip
             </p>
         </div>
-    </div>
+    
 </footer>
 <!--Scripts-->    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"

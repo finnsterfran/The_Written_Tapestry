@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="row register">
+        <form class="col s12" method="POST" action="#">
+            <div class="card-panel register-card z-depth-4">
+                <div class="row">
+                    <div class="input-field col s10 offset-s1">
+                        <input id="username" class="validate" placeholder="Username" type="text" minlength="5" 
+                            maxlength="15" pattern="^[a-z-Z0-9{5-15}$" required>
+                        <label for="username">Username</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s10 offset-s1">
+                        <input id="first_name" class="validate" placeholder="First Name" type="text"
+                            minlength="3" maxlength="10" required>
+                        <label for="first_name">First Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s10 offset-s1">
+                        <input id="last_name" class="validate" placeholder="Last Name" type="text"
+                            minlength="3" maxlength="15" required>
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s10 offset-s1">
+                        <input id="password" class="validate" placeholder="password" type="password"
+                        minlength="5" maxlength="15" pattern="^[a-z-Z0-9{5-15}$" required>
+                        <label for="first_name">Password</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="submit" class="col s10 offset-s1 btn-large brown lighten-1 black-text">
+                        Register
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <p class="center-align mini-text">
+                Already a registered user? <a href="#" class="deep-orange-text text-lighten-1"> Log In</a>
+            </p>
+        </div>
+    </div>
+
+
+{% endblock %}

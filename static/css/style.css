@@ -36,6 +36,14 @@ h1 {
     margin: auto;
 }
 
+/* Main */
+
+
+h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
 /* Footer */
 .footer-icon {
     color: #5d4037;
