@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+a:hover {
+    color: #ff7043;
+}
+
+/* Header */
+header {
+    padding: 20px;
+}
+
+.logo-img {
+    height: 4.1rem;
+    width: 5.2rem;
+}
+
+.header-logo {
+    display: inline-flex;
+}
+
+.cursive {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+}
+
+h1 {
+    font-size: 2rem;
+    margin: auto;
+}
+
+/* Footer */
+.footer-icon {
+    color: #5d4037;
+}
+
+.footer-icon:hover {
+    color: #ff7043;
+}
+
+.copyright {
+    padding-bottom: 30px;
+}
