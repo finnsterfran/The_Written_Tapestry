@@ -35,25 +35,45 @@
                     <i class="fas fa-bars"></i>
                 </a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('home') }}" class="black-text">
-                            <i class="fas fa-feather-alt"></i> home</a></li>
-                    <li><a href="{{ url_for('board') }}" class="black-text">
-                            <i class="fas fa-feather-alt"></i> board</a></li>
+                    <li>
+                        <a href="{{ url_for('home') }}" class="black-text">
+                            <i class="fas fa-feather-alt"></i> home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('board') }}" class="black-text">
+                            <i class="fas fa-feather-alt"></i> board
+                        </a>
+                    </li>
                     {% if session.user %}
-                        <li><a href="{{ url_for('profile', username=session['user']) }}" class="black-text">
-                            <i class="fas fa-feather-alt"></i> profile</a></li>
-                    <!--Add insert new post-->
-                        <!-- {% if session.user|lower == "admin|lower %}
 
+                        <li>
+                            <a href="{{ url_for('profile', username=session['user']) }}" class="black-text">
+                                <i class="fas fa-feather-alt"></i> profile
+                            </a>
+                        </li>
+                        <li><a href="{{ url_for('new_post') }}" class="black-text"> 
+                                <i class="fas fa-feather-alt"></i> Add a Poem
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="{{ url_for('logout') }}" class="black-text">
+                                <i class="fas fa-feather-alt"></i> log out
+                            </a>
+                        </li> 
 
-                        {% end if %} -->
-                        <!-- <li><a href="{{ url_for('logout') }}" class="black-text">
-                            <i class="fas fa-feather-alt"></i> log out</a></li> -->
-                    <!-- {% else %}     -->
-                    <li><a href="{{ url_for('register') }}" class="black-text">
-                            <i class="fas fa-feather-alt"></i> register</a></li>
-                    <li><a href="{{ url_for('login') }}" class="black-text">
-                            <i class="fas fa-feather-alt"></i> login</a></li>
+                    {% else %}    
+
+                        <li><a href="{{ url_for('register') }}" class="black-text">
+                                <i class="fas fa-feather-alt"></i> register
+                            </a>
+                        </li>
+                        <li><a href="{{ url_for('login') }}" class="black-text">
+                                <i class="fas fa-feather-alt"></i> login
+                            </a>
+                        </li>
+
                     {% endif %}
                 </ul>
             </div>
@@ -62,16 +82,19 @@
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('home') }}" class="black-text"> home</a></li>
             <li><a href="{{ url_for('board') }}" class="black-text"> board</a></li>    
+            
             {% if session.user %}
-                <li><a href="{{ url_for('profile', username=session['user']) }}" class="black-text"> profile</a></li>
-                <!--Add insert new post-->
-                <!-- {% if session.user|lower == "admin"|lower %}
 
-                {% endif %} -->
-                <!-- <li><a href="{{ url_for('logout') }}"> Log Out</a></li> -->
-            <!-- {% else %} -->
+                <li><a href="{{ url_for('profile', username=session['user']) }}" class="black-text"> profile</a></li>
+                <li><a href="{{ url_for('new_post') }}" class="black-text">Add a Poem</a></li>
+             
+                <li><a href="{{ url_for('logout') }}" class="black-text"> log out</a></li> 
+
+            {% else %}
+
                 <li><a href="{{ url_for('register') }}" class="black-text"> register</a></li>
                 <li><a href="{{ url_for('login') }}" class="black-text"> login</a></li>
+                
             {% endif %}
         </ul>
 </header>

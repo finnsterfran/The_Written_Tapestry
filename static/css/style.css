@@ -68,3 +68,7 @@ h2 {
 .card-writing {
     text-align: center;
 }
+
+.post-container {
+    padding-top: 2rem;
+}

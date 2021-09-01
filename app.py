@@ -24,7 +24,7 @@ def home():
 
 @app.route("/board/")
 def board():
-    writings = list(mongo.db.essays.find().sort("title", 1))
+    writings = list(mongo.db.essays.find().sort('title', 1))
     return render_template('board.html', writings=writings)
 
 
@@ -61,11 +61,11 @@ def login():
 
         if existing_user:
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Hey {}!".format(request.form.get("username")))
-                    return redirect(url_for("profile", 
-                            username=session["user"]))
+                    existing_user["password"], 
+                    request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Hey {}!".format(request.form.get("username")))
+                return redirect(url_for("profile", username=session["user"]))
             else:
                 flash("Hmm...that's not your Username and/or Password.")
                 return redirect(url_for('login'))
@@ -86,7 +86,6 @@ def logout():
 
 @app.route("/profile/<username>", methods=['GET', 'POST'])
 def profile(username):
-    #grab the session user's username from the database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     
@@ -102,7 +101,7 @@ def new_post():
         post = {
             "title": request.form.get('title'),
             "author": session['user'],
-            "date": request.form.get('date')
+            "date": request.form.get('date'),
             "category_name": request.form.get('category_name'),
             "composition": request.form.get('composition')
         }
