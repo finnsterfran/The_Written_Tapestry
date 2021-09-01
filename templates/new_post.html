@@ -1,0 +1,52 @@
+{% extends 'base.hmtl' %}
+{% block content %}
+    <div class="row card brown lighten-5 post-card">
+        <form class="col s12 m10 offset-m1 post" method="POST" action='#'>
+            <div class="row">
+                <div class="input-field col s10 offset-s1">
+                    <select class="validate" name="category-name" id="category_name" required>
+                        <option value="" disabled selected></option>
+                        {% for category in categories %}
+                            <option value="{{ category.category_name }}"></option>
+                        {% endfor %}
+                    </select>
+                    <label>What will you be writing today?</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s10 offset-s1">
+                    <input id="title" type="text" class="validate" name="title" minlength="2" maxlength="30">
+                    <label for="title">Title</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s10 offset-s1">
+                    <input id="author" type="text" class="validate" name="title" minlength="2" maxlength="20">
+                    <label for="author">Author's Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s10 offset-s1">
+                    <input id="date" type="date" class="validate" name="date" min="01-01-2021" placeholder="dd-mm-yyyy" maxlength="30-30-2030">
+                    <label for="date">Date</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s10 offset-s1">
+                    <textarea name="composition" id="composition" minlength="20" maxlength="400" class="materialize-textarea validate"></textarea>
+                    <label for="composition">Start Writing here</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s10 center-align">
+                   <button class="btn-large light-brown lighten-1 text-shadow">
+                       Post Your Poem 
+                   </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    
+{% endblock %}

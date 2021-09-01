@@ -1,6 +1,24 @@
 {% extends 'base.html %}
 {% block content %}
-
+    <div class="row">
+        <div class="profile-box col l6">
+            <div class="card large">
+                <div class="card-content black-text">
+                    <span class="card-title">
+                        {{ username }}'s Profile
+                    </span>
+                    <p>Something something</p>
+                </div>
+            </div>
+        </div>
+        <div class="profile-box col l6">
+            <ul class="collapsible popout">
+                <li>
+                    <div class="collapsible-header">First</div>
+                    <div class="collapsible-body">First</div>
+                </li>             
+            </ul>
+        </div>
+    </div>
         
-
 {% endblock %}

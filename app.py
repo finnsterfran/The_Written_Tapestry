@@ -28,14 +28,14 @@ def board():
     return render_template('board.html', writings=writings)
 
 
-@app.route("/register/")
+@app.route("/register/", methods=['GET', 'POST'])
 def register():
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
         
         if existing_user:
-            flash("So much for originality! Someone else has already regsistered this username.")
+            flash("Someone else has already registered this username.")
             return redirect(url_for('register'))
 
         register = {
@@ -64,19 +64,24 @@ def login():
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
                     flash("Hey {}!".format(request.form.get("username")))
-                    return redirect(url_for("profile", username=session["user"]))
+                    return redirect(url_for("profile", 
+                            username=session["user"]))
             else:
-                #invalid password match
                 flash("Hmm...that's not your Username and/or Password.")
                 return redirect(url_for('login'))
 
         else:
-            #username doesn't exist 
             flash("Hmm...that's not your Username and/or Password.")
             return redirect(url_for('login'))
         
-        return render_template('login.html')
+    return render_template('login.html')
 
+
+@app.route("/logout")
+def logout():
+    flash("You have been logged out.")
+    session.pop("user")
+    return redirect(url_for("login"))
 
 
 @app.route("/profile/<username>", methods=['GET', 'POST'])
@@ -87,6 +92,30 @@ def profile(username):
     
     if session["user"]:
         return render_template('profile.html', username=username)
+    
+    return redirect(url_for("login"))
+
+
+@app.route("/new_post")
+def new_post():
+    if request.method == 'POST':
+        post = {
+            "title": request.form.get('title'),
+            "author": session['user'],
+            "date": request.form.get('date')
+            "category_name": request.form.get('category_name'),
+            "composition": request.form.get('composition')
+        }
+        mongo.db.essays.insert_one(post)
+        flash("Your poem has been added.")
+        return redirect(url_for('board'))
+
+    categories = mongo.db.categories.find().sort('category_name', 1)
+    return render_template('new_post.html', categories=categories)
+
+
+
+
 
 
 if __name__ == "__main__":

@@ -39,20 +39,43 @@
                             <i class="fas fa-feather-alt"></i> home</a></li>
                     <li><a href="{{ url_for('board') }}" class="black-text">
                             <i class="fas fa-feather-alt"></i> board</a></li>
+                    {% if session.user %}
+                        <li><a href="{{ url_for('profile', username=session['user']) }}" class="black-text">
+                            <i class="fas fa-feather-alt"></i> profile</a></li>
+                    <!--Add insert new post-->
+                        <!-- {% if session.user|lower == "admin|lower %}
+
+
+                        {% end if %} -->
+                        <!-- <li><a href="{{ url_for('logout') }}" class="black-text">
+                            <i class="fas fa-feather-alt"></i> log out</a></li> -->
+                    <!-- {% else %}     -->
                     <li><a href="{{ url_for('register') }}" class="black-text">
                             <i class="fas fa-feather-alt"></i> register</a></li>
+                    <li><a href="{{ url_for('login') }}" class="black-text">
+                            <i class="fas fa-feather-alt"></i> login</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
     <!--Mobile SideBar-->
         <ul class="sidenav" id="mobile-demo">
-            <li>
-                <a href="{{ url_for('home') }}" class="black-text"> home</a>
-                <a href="{{ url_for('board') }}" class="black-text"> board</a>
-                <a href="{{ url_for('register') }}" class="black-text"> register</a>
-            </li>
+            <li><a href="{{ url_for('home') }}" class="black-text"> home</a></li>
+            <li><a href="{{ url_for('board') }}" class="black-text"> board</a></li>    
+            {% if session.user %}
+                <li><a href="{{ url_for('profile', username=session['user']) }}" class="black-text"> profile</a></li>
+                <!--Add insert new post-->
+                <!-- {% if session.user|lower == "admin"|lower %}
+
+                {% endif %} -->
+                <!-- <li><a href="{{ url_for('logout') }}"> Log Out</a></li> -->
+            <!-- {% else %} -->
+                <li><a href="{{ url_for('register') }}" class="black-text"> register</a></li>
+                <li><a href="{{ url_for('login') }}" class="black-text"> login</a></li>
+            {% endif %}
         </ul>
 </header>
+
 <!--Flash Messages-->
 <section>
     {% with messages = get_flashed_messages() %}
