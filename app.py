@@ -17,7 +17,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-@app.route("/")
+@app.route('/')
 def home():
     return render_template('home.html')
 
@@ -28,58 +28,56 @@ def not_found(er):
     return render_template('404.html')
 
 
-@app.route("/board/")
+@app.route('/board/')
 def board():
     writings = list(mongo.db.essays.find().sort('title', 1))
     return render_template('board.html', writings=writings)
 
 
-@app.route("/register/", methods=['GET', 'POST'])
+@app.route('/register/', methods=['GET', 'POST'])
 def register():
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
-        
+            {'username': request.form.get('username').lower()})
         if existing_user:
             flash("Someone else has already registered this username.")
             return redirect(url_for('register'))
-
+        if request.form.get('password') != request.form.get(
+                'confirm_password'):
+            flash("Password and Confirm Password MUST match")        
+            return redirect(url_for('register'))
         register = {
-            "username": request.form.get('username').lower(),
-            "first_name": request.form.get('first_name').lower(),
-            "last_name": request.form.get('last_name').lower(),
-            "password": generate_password_hash(request.form.get('password'))
+            'username': request.form.get('username').lower(),
+            'first_name': request.form.get('first_name').lower(),
+            'last_name': request.form.get('last_name').lower(),
+            'password': generate_password_hash(request.form.get('password'))
         }
-
         mongo.db.users.insert_one(register)
-
-        session["user"] = request.form.get("username").lower()
+        # Put new user into a session cookie
+        session['user'] = request.form.get('username').lower()
         flash("You did it! Successful registration as a new user. Hurrah!")
-        return redirect(url_for('profile', username=session["user"]))
+        return redirect(url_for('profile', username=session['user']))
     return render_template('register.html')
 
 
-@app.route("/login/", methods=['GET', 'POST'])
+@app.route('/login/', methods=['GET', 'POST'])
 def login():
-    if request.method == "POST":
+    if request.method == 'POST':
         existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
-
+            {'username': request.form.get('username').lower()})
         if existing_user:
             if check_password_hash(
-                    existing_user["password"], 
-                    request.form.get("password")):
-                session["user"] = request.form.get("username").lower()
-                flash("Hey {}!".format(request.form.get("username")))
-                return redirect(url_for("profile", username=session["user"]))
+                    existing_user['password'], 
+                    request.form.get('password')):
+                session['user'] = request.form.get('username').lower()
+                flash("Hey {}!".format(request.form.get('username')))
+                return redirect(url_for('profile', username=session['user']))
             else:
                 flash("Hmm...that's not your Username and/or Password.")
                 return redirect(url_for('login'))
-
         else:
             flash("Hmm...that's not your Username and/or Password.")
             return redirect(url_for('login'))
-        
     return render_template('login.html')
 
 
@@ -117,10 +115,6 @@ def new_post():
 
     categories = mongo.db.categories.find().sort('category_name', 1)
     return render_template('new_post.html', categories=categories)
-
-
-
-
 
 
 if __name__ == "__main__":
