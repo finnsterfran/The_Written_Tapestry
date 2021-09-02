@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="row">
-        <div class="profile-box col s12  m6">
+        <div class="profile-box col s12 m6">
             <div class="card large center-align z-depth-4">
                 <div class="card-image">
                     <img class="profile-img" src="{{ url_for('static', filename='useravatar.png') }}" alt="default user icon image">
@@ -13,14 +13,28 @@
                 </div>
             </div>
         </div>
+        
         <div class="profile-box col s12 m6">
             <ul class="collapsible popout">
+                <div class="center-align">
+                    <h4 class="col-head-title">Pieces by {{ username.capitalize() }}</h4>
+                </div>
+                {% for piece in userpoems %}
                 <li>
-                    <div class="collapsible-header">First</div>
-                    <div class="collapsible-body">First</div>
+                    
+                    <div class="collapsible-header"><i class="fas fa-glasses"></i>
+                        {{ piece.title.capitalize() }}
+                        
+                    </div>
+                    <div class="collapsible-body">
+                        <small>{{ piece.date }}</small>
+                        <p>{{ piece.composition }}</p>
+                    </div>
                 </li>             
+                {% endfor %}
             </ul>
         </div>
+
     </div>
         
 {% endblock %}

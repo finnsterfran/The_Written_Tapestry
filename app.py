@@ -44,7 +44,7 @@ def register():
             return redirect(url_for('register'))
         if request.form.get('password') != request.form.get(
                 'confirm_password'):
-            flash("Password and Confirm Password MUST match")        
+            flash("Password and Confirm Password MUST match")
             return redirect(url_for('register'))
         register = {
             'username': request.form.get('username').lower(),
@@ -67,10 +67,11 @@ def login():
             {'username': request.form.get('username').lower()})
         if existing_user:
             if check_password_hash(
-                    existing_user['password'], 
+                    existing_user['password'],
                     request.form.get('password')):
                 session['user'] = request.form.get('username').lower()
-                flash("Hey {}!".format(request.form.get('username').capitalize()))
+                flash("Hey {}!".format(
+                    request.form.get('username').capitalize()))
                 return redirect(url_for('profile', username=session['user']))
             else:
                 flash("Hmm...that's not your Username and/or Password.")
@@ -92,11 +93,13 @@ def logout():
 def profile(username):
 
     username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+        {"username": session['user']})['username']
+    userpoems = list(mongo.db.essays.find({'author': session['user']}))
     
     if session["user"]:
-        return render_template('profile.html', username=username)
-    
+        return render_template('profile.html',
+                               username=username,
+                               userpoems=userpoems)
     return redirect(url_for("login"))
 
 
@@ -116,6 +119,10 @@ def new_post():
 
     categories = mongo.db.categories.find().sort('category_name', 1)
     return render_template('new_post.html', categories=categories)
+
+
+
+
 
 
 if __name__ == "__main__":

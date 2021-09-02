@@ -8,6 +8,10 @@ body {
     font-family: 'Nunito', sans-serif;
 }
 
+.container {
+    width: 90%;
+}
+
 a:hover {
     color: #ff7043;
 }
@@ -102,4 +106,16 @@ h2 {
 .profile-name {
     margin-top: 3rem;
     font-family: Pacifico;
+}
+
+.col-head-title {
+    font-size: 1.2rem;
+}
+
+.collapsible-header {
+    padding-left: 2rem;
+    font-weight: 600;
+}
+.click-it {
+    padding-left: 280px;
 }
