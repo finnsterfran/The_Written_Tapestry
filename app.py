@@ -22,6 +22,12 @@ def home():
     return render_template('home.html')
 
 
+@app.errorhandler(404)
+def not_found(er):
+    flash("A Fool's Errand!")
+    return render_template('404.html')
+
+
 @app.route("/board/")
 def board():
     writings = list(mongo.db.essays.find().sort('title', 1))
