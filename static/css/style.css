@@ -92,3 +92,14 @@ h2 {
 .reg-icon {
     padding-right: 10px;
 }
+
+.profile-img {
+    max-width: 50%;
+    height: auto;
+    margin: 4rem auto; 
+}
+
+.profile-name {
+    margin-top: 3rem;
+    font-family: Pacifico;
+}

@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="row">
-        <div class="profile-box col l6">
-            <div class="card large">
+        <div class="profile-box col s12  m6">
+            <div class="card large center-align z-depth-4">
+                <div class="card-image">
+                    <img class="profile-img" src="{{ url_for('static', filename='useravatar.png') }}" alt="default user icon image">
+                </div>
                 <div class="card-content black-text">
-                    <span class="card-title">
-                        {{ username }}
+                    <span class="profile-name card-title">
+                        <h3>{{ username.capitalize() }}</h3>
                     </span>
-                    <p>Something something</p>
                 </div>
             </div>
         </div>
-        <div class="profile-box col l6">
+        <div class="profile-box col s12 m6">
             <ul class="collapsible popout">
                 <li>
                     <div class="collapsible-header">First</div>
