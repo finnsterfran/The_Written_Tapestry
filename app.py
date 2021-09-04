@@ -13,12 +13,16 @@ app = Flask(__name__)
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.secret_key = os.environ.get("SECRET_KEY")
-
+app.config['SESSION_PERMANENT'] = False
+app.config["SESSION_TYPE"] = 'mongodb'
 mongo = PyMongo(app)
+
 
 
 @app.route('/')
 def home():
+    if not session.get('username'):
+        flash("To post a story, please Log in or Register as a new user!")
     return render_template('home.html')
 
 
@@ -32,7 +36,7 @@ def not_found(er):
 def board():
     writings = list(mongo.db.essays.find().sort('title', 1))
     return render_template('board.html', writings=writings)
-
+    
 
 @app.route('/register/', methods=['GET', 'POST'])
 def register():
@@ -85,7 +89,7 @@ def login():
 @app.route("/logout")
 def logout():
     flash("You have been logged out.")
-    session.pop("user")
+    session.pop('user')
     return redirect(url_for("login"))
 
 
@@ -94,12 +98,11 @@ def profile(username):
 
     username = mongo.db.users.find_one(
         {"username": session['user']})['username']
-    userpoems = list(mongo.db.essays.find({'author': session['user']}))
-    
+    userstories = list(mongo.db.essays.find({'author': session['user']}))
     if session["user"]:
         return render_template('profile.html',
                                username=username,
-                               userpoems=userpoems)
+                               userstories=userstories)
     return redirect(url_for("login"))
 
 
@@ -114,14 +117,29 @@ def new_post():
             "composition": request.form.get('composition')
         }
         mongo.db.essays.insert_one(post)
-        flash("Your poem has been added.")
+        flash("Your story has been added.")
         return redirect(url_for('board'))
 
     categories = mongo.db.categories.find().sort('category_name', 1)
     return render_template('new_post.html', categories=categories)
 
 
-
+@app.route('/edit_post/<post_id>', methods=['GET', 'POST'])
+def edit_post(post_id):
+    if request.method == 'POST':
+        submit = { 
+                'title': request.form.get('title'),
+                'author': session['user'],
+                'date': request.form.get('date'),
+                'category_name': request.form.get('category_name'),
+                'composition': request.form.get('composition')
+        }
+        mongo.db.essays.update({'_id': ObjectId(post_id)}, submit)
+        flash("Alright then, you've successsfully editted this post.")
+    post = mongo.db.essays.find_one(
+            {'_id': ObjectId(post_id)})
+    categories = mongo.db.categories.find().sort('category_name', 1)
+    return render_template('edit_post.html', post=post, categories=categories)
 
 
 if __name__ == "__main__":

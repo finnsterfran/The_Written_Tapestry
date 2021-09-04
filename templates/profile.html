@@ -19,12 +19,12 @@
                 <div class="center-align">
                     <h4 class="col-head-title">Pieces by {{ username.capitalize() }}</h4>
                 </div>
-                {% for piece in userpoems %}
+                {% for piece in userstories %}
                 <li>
                     
                     <div class="collapsible-header"><i class="fas fa-glasses"></i>
                         {{ piece.title.capitalize() }}
-                        
+                        <i></i>
                     </div>
                     <div class="collapsible-body">
                         <small>{{ piece.date }}</small>

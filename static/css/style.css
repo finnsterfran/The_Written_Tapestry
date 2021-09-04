@@ -48,6 +48,9 @@ h2 {
     font-weight: 600;
 }
 
+.flash {
+    font-size: 1.3rem;
+}
 
 /* Footer */
 .page-footer {
@@ -120,3 +123,4 @@ h2 {
 .click-it {
     padding-left: 280px;
 }
+
