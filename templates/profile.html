@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="row">
-        <div class="profile-box col s12 m6">
+        <div class="profile-box col s12 m5">
             <div class="card large center-align z-depth-4">
                 <div class="card-image">
                     <img class="profile-img" src="{{ url_for('static', filename='useravatar.png') }}" alt="default user icon image">
@@ -14,22 +14,31 @@
             </div>
         </div>
         
-        <div class="profile-box col s12 m6">
+        <div class="profile-box col s12 m7">
             <ul class="collapsible popout">
                 <div class="center-align">
                     <h4 class="col-head-title">Pieces by {{ username.capitalize() }}</h4>
                 </div>
-                {% for piece in userstories %}
+                {% for story in userstories %}
                 <li>
                     
                     <div class="collapsible-header"><i class="fas fa-glasses"></i>
-                        {{ piece.title.capitalize() }}
+                        {{ story.title.title() }}
                         <i></i>
                     </div>
+                    
                     <div class="collapsible-body">
-                        <small>{{ piece.date }}</small>
-                        <p>{{ piece.composition }}</p>
+                        <small>{{ story.date }}</small>
+                        <p>{{ story.composition }}</p>
+                        <br>
+                        <div class="divider center-align"></div>
+                            <br>
+                            <a href="{{ url_for('delete_story', story_id=story._id) }}" class="btn-small waves-effect deep-orange">Delete this story</a>
+                            <a href="{{ url_for('edit_story', story_id=story._id) }}" class="btn-small waves-effect brown">Edit this Story</a>
+    
                     </div>
+
+    
                 </li>             
                 {% endfor %}
             </ul>

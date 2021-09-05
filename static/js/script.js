@@ -4,3 +4,7 @@ $(document).ready(function(){
     $('select').formSelect();
 });
 
+// $('#composition').val('...');
+// M.textareaAutoResize($('#composition'));
+
+

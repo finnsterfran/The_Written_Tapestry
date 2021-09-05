@@ -1,0 +1,62 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="post-container row card brown lighten-5 post-card">
+    <h3 class="center-align">Editing this story</h3>
+    <form class="col s12 m10 offset-m1 post" method="POST" action="{{ url_for('edit_story', story_id=story._id) }}">
+        <div class="row">
+            <div class="input-field col s10 offset-s1">
+                <select class="validate" name="category_name" id="category_name" required>
+                    <option value="" disabled selected></option>
+                    {% for category in categories %}
+                        {% if category.category_name == story.category_name %}
+                            <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                        {% else %}
+                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+                <label>What will you be writing today?</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s10 offset-s1">
+                <input id="title" type="text" class="validate" value="{{ story.title }}" name="title" minlength="2" maxlength="30">
+                <label for="title">Title</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s10 offset-s1">
+                <input id="author" type="text" class="validate" value="{{ story.author }}" name="author" minlength="2" maxlength="20">
+                <label for="author">Author's Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s10 offset-s1">
+                <input id="date" type="date" class="validate" value="{{ story.date }}"  name="date" min="01-01-2021" placeholder="dd-mm-yyyy" maxlength="30-30-2030">
+                <label for="date">Date</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s10 offset-s1">
+                <textarea name="composition" id="composition" cols="100" rows="10" minlength="50" maxlength="500"
+                    class="materialize-textarea validate">
+                    {{- story.composition -}}
+                </textarea>
+                <label for="composition">Start Writing here</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s10 center-align">
+                <a href="{{ url_for('get_stories') }}" class="btn-large brown darken-1 text-shadow">
+                    Cancel <i class="fas fa-times-circle right"></i>
+                </a>
+               <button class="btn-large light-brown lighten-1 text-shadow">
+                   Submit Edit<i class="fas fa-edit right"></i>
+               </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

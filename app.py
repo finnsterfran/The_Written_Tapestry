@@ -21,9 +21,15 @@ mongo = PyMongo(app)
 
 @app.route('/')
 def home():
-    if not session.get('username'):
-        flash("To post a story, please Log in or Register as a new user!")
     return render_template('home.html')
+
+
+@app.route('/search/', methods=['GET', 'POST'])
+def search():
+    query = request.form.get('query')
+    stories = list(mongo.db.stories.find({'$text': {'$search': query}}))
+    users = list(mongo.db.users.find({'$text': {'$search': query}}))
+    return render_template('get_stories.html', stories=stories, users=users)
 
 
 @app.errorhandler(404)
@@ -32,11 +38,11 @@ def not_found(er):
     return render_template('404.html')
 
 
-@app.route('/board/')
-def board():
-    writings = list(mongo.db.essays.find().sort('title', 1))
-    return render_template('board.html', writings=writings)
-    
+@app.route('/get_stories/')
+def get_stories():
+    writings = list(mongo.db.stories.find().sort('title', 1))
+    return render_template('get_stories.html', writings=writings)
+
 
 @app.route('/register/', methods=['GET', 'POST'])
 def register():
@@ -93,12 +99,12 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/profile/<username>", methods=['GET', 'POST'])
+@app.route("/profile/<username>/", methods=['GET', 'POST'])
 def profile(username):
 
     username = mongo.db.users.find_one(
         {"username": session['user']})['username']
-    userstories = list(mongo.db.essays.find({'author': session['user']}))
+    userstories = list(mongo.db.stories.find({'author': session['user']}))
     if session["user"]:
         return render_template('profile.html',
                                username=username,
@@ -106,26 +112,26 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-@app.route("/new_post")
-def new_post():
+@app.route('/new_story', methods=['GET', 'POST'])
+def new_story():
     if request.method == 'POST':
-        post = {
+        submit = {
             "title": request.form.get('title'),
             "author": session['user'],
             "date": request.form.get('date'),
             "category_name": request.form.get('category_name'),
             "composition": request.form.get('composition')
         }
-        mongo.db.essays.insert_one(post)
+        mongo.db.stories.insert_one(submit)
         flash("Your story has been added.")
-        return redirect(url_for('board'))
+        return redirect(url_for('get_stories'))
 
     categories = mongo.db.categories.find().sort('category_name', 1)
-    return render_template('new_post.html', categories=categories)
+    return render_template('new_story.html', categories=categories)
 
 
-@app.route('/edit_post/<post_id>', methods=['GET', 'POST'])
-def edit_post(post_id):
+@app.route('/edit_story/<story_id>/', methods=['GET', 'POST'])
+def edit_story(story_id):
     if request.method == 'POST':
         submit = { 
                 'title': request.form.get('title'),
@@ -134,12 +140,19 @@ def edit_post(post_id):
                 'category_name': request.form.get('category_name'),
                 'composition': request.form.get('composition')
         }
-        mongo.db.essays.update({'_id': ObjectId(post_id)}, submit)
-        flash("Alright then, you've successsfully editted this post.")
-    post = mongo.db.essays.find_one(
-            {'_id': ObjectId(post_id)})
+        mongo.db.stories.update({'_id': ObjectId(story_id)}, submit)
+        flash("Alright then, you've successsfully edited this story.")
+    story = mongo.db.stories.find_one(
+            {'_id': ObjectId(story_id)})
     categories = mongo.db.categories.find().sort('category_name', 1)
-    return render_template('edit_post.html', post=post, categories=categories)
+    return render_template('edit_story.html', story=story, categories=categories)
+
+
+@app.route('/delete_story/<story_id>')
+def delete_story(story_id):
+    mongo.db.essays.remove({'_id': ObjectId(story_id)})
+    flash('You have deleted a story')
+    return redirect(url_for('get_stories'))
 
 
 if __name__ == "__main__":

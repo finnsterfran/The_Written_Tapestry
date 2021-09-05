@@ -11,14 +11,13 @@ body {
 .container {
     width: 90%;
 }
-
 a:hover {
     color: #ff7043;
 }
 
 /* Header */
 header {
-    padding: 20px;
+    padding: 1.25rem;
 }
 
 .logo-img {
@@ -41,8 +40,6 @@ h1 {
 }
 
 /* Main */
-
-
 h2 {
     font-size: 1.2rem;
     font-weight: 600;
@@ -60,7 +57,7 @@ h2 {
 }
 .footer-icon {
     color: #5d4037;
-    padding: 10px;
+    padding: 0.7rem;
 }
 
 .footer-icon:hover {
@@ -68,24 +65,22 @@ h2 {
 }
 
 .copyright {
-    padding-bottom: 30px;
+    padding-bottom: 1.9rem;
 }
 
 .post-card {
-    padding: 15px;
+    width: 100%;
+    padding: 5rem;
 }
+
 
 .writing {
-    font-size: 1rem;
-}
-
-.card-writing {
-    text-align: center;
+    font-size: 1.2rem;
 }
 
 .post-container {
     padding-top: 2rem;
-}
+} 
 
 /* Error 404 */
 
@@ -98,13 +93,13 @@ h2 {
 }
 
 .reg-icon {
-    padding-right: 10px;
+    padding-right: 0.625px;
 }
 
 .profile-img {
     max-width: 50%;
     height: auto;
-    margin: 4rem auto; 
+    margin: 3rem auto; 
 }
 
 .profile-name {
@@ -124,3 +119,10 @@ h2 {
     padding-left: 280px;
 }
 
+textarea {
+    height: 20rem !important;
+}
+
+input {
+    font-size: 5rem;
+}
