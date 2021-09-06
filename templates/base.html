@@ -53,9 +53,15 @@
                             </a>
                         </li>
                         <li><a href="{{ url_for('new_story') }}" class="black-text"> 
-                                <i class="fas fa-feather-alt"></i> Add a Story
+                                <i class="fas fa-feather-alt"></i> add a Story
                             </a>
                         </li>
+                        {% if session.user|lower == "administration"|lower %}
+                        <li><a href="{{ url_for('user') }}" class="black-text">
+                            <i class="fas fa-feather-alt"></i> users
+                            </a>
+                        </li>
+                        {% endif %}
                         <li>
                             <a href="{{ url_for('logout') }}" class="black-text">
                                 <i class="fas fa-feather-alt"></i> log out
@@ -80,9 +86,12 @@
             <li><a href="{{ url_for('get_stories') }}" class="black-text"> board</a></li>    
             {% if session.user %}
                 <li><a href="{{ url_for('profile', username=session['user']) }}" class="black-text"> profile</a></li>
-                <li><a href="{{ url_for('new_story') }}" class="black-text">Add a Story</a></li>
-                <li><a href="{{ url_for('logout') }}" class="black-text"> log out</a></li> 
+                <li><a href="{{ url_for('new_story') }}" class="black-text">add a Story</a></li>
+                {% if session.user|lower == "administration"|lower %}
+                    <li><a href="{{ url_for('user') }}" class=black-text> users</a></li>
+                {% endif %}
             {% else %}
+                <li><a href="{{ url_for('logout') }}" class="black-text"> log out</a></li> 
                 <li><a href="{{ url_for('register') }}" class="black-text"> register</a></li>
                 <li><a href="{{ url_for('login') }}" class="black-text"> login</a></li>
             {% endif %}
@@ -100,25 +109,19 @@
             {% endfor %}
         {% endif %} 
     {% endwith %}
+    {% if session.user %}
+        <p class="center-align status-tag brown-text text-lighten-1">You are logged in as {{ session.user.capitalize() }}</p>  
+    {% endif %}     
 </section>
+
 <main class="container">
     {% block content %} 
 
     {% endblock %}
 </main>
-<footer class="page-footer brown lighten-2 z-depth-2">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 center-align">
-                <a href="https://facebook.com" rel="noopener" target="_blank"><i class="footer-icon fab fa-facebook fa-2x"></i></a>
-                <a href="https://twitter.com" rel="noopener" target="_blank"><i class="footer-icon fab fa-twitter fa-2x"></i></a>
-                <a href="https://instagram.com" rel="noopener" target="_blank"><i class="footer-icon fab fa-instagram fa-2x"></i></a>
-                <a href="https://youtube.com" rel="noopener" target="_blank"><i class="footer-icon fab fa-youtube fa-2x"></i></a>
-            </div>
-        </div>
-    </div>
+<footer class="page-footer brown darken-1">
     <div class="container copyright">
-        <p class="center-align brown-text text-darken-2">
+        <p class="center-align white-text">
             Copyright &copy; Frannie Yip
         </p>
     </div>

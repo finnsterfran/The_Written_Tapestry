@@ -11,6 +11,11 @@ body {
 .container {
     width: 90%;
 }
+
+a {
+    color: #827717;
+}
+
 a:hover {
     color: #ff7043;
 }
@@ -39,6 +44,11 @@ h1 {
     margin: auto;
 }
 
+.status-tag {
+    padding: 20px;
+    font-size: 1.2rem;
+}
+
 /* Main */
 h2 {
     font-size: 1.2rem;
@@ -51,28 +61,22 @@ h2 {
 
 /* Footer */
 .page-footer {
-
     width: 100%;
     bottom: 0;
-}
-.footer-icon {
-    color: #5d4037;
-    padding: 0.7rem;
-}
-
-.footer-icon:hover {
-    color: #ff7043;
 }
 
 .copyright {
     padding-bottom: 1.9rem;
 }
 
+.copyright > p {
+    font-size: 1.5rem;
+}
+
 .post-card {
     width: 100%;
     padding: 5rem;
 }
-
 
 .writing {
     font-size: 1.2rem;
@@ -108,7 +112,7 @@ h2 {
 }
 
 .col-head-title {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 .collapsible-header {
@@ -125,4 +129,16 @@ textarea {
 
 input {
     font-size: 5rem;
+}
+.user-card {
+    padding: 2rem 3rem 2.5rem;
+}
+
+.user-tags {
+    font-weight: 600;
+    padding-right: 2rem;
+}
+
+.submitBtn {
+    background-color: #827717 !important;
 }

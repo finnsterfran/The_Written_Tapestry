@@ -1,8 +1,9 @@
 import os
 from flask import (
     Flask, request, render_template,
-    redirect, flash, session, url_for)
+    redirect, flash, session, url_for, app)
 from flask_pymongo import PyMongo
+from datetime import datetime, timedelta
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
@@ -18,7 +19,6 @@ app.config["SESSION_TYPE"] = 'mongodb'
 mongo = PyMongo(app)
 
 
-
 @app.route('/')
 def home():
     return render_template('home.html')
@@ -27,9 +27,8 @@ def home():
 @app.route('/search/', methods=['GET', 'POST'])
 def search():
     query = request.form.get('query')
-    stories = list(mongo.db.stories.find({'$text': {'$search': query}}))
-    users = list(mongo.db.users.find({'$text': {'$search': query}}))
-    return render_template('get_stories.html', stories=stories, users=users)
+    writings = list(mongo.db.stories.find({'$text': {'$search': query}}))
+    return render_template('get_stories.html', writings=writings)
 
 
 @app.errorhandler(404)
@@ -60,8 +59,10 @@ def register():
             'username': request.form.get('username').lower(),
             'first_name': request.form.get('first_name').lower(),
             'last_name': request.form.get('last_name').lower(),
-            'password': generate_password_hash(request.form.get('password'))
+            'password': generate_password_hash(request.form.get('password')),
+            'date_joined': datetime.now()
         }
+
         mongo.db.users.insert_one(register)
         # Put new user into a session cookie
         session['user'] = request.form.get('username').lower()
@@ -133,7 +134,7 @@ def new_story():
 @app.route('/edit_story/<story_id>/', methods=['GET', 'POST'])
 def edit_story(story_id):
     if request.method == 'POST':
-        submit = { 
+        submit = {
                 'title': request.form.get('title'),
                 'author': session['user'],
                 'date': request.form.get('date'),
@@ -142,10 +143,13 @@ def edit_story(story_id):
         }
         mongo.db.stories.update({'_id': ObjectId(story_id)}, submit)
         flash("Alright then, you've successsfully edited this story.")
+        return redirect(url_for('get_stories'))
     story = mongo.db.stories.find_one(
             {'_id': ObjectId(story_id)})
     categories = mongo.db.categories.find().sort('category_name', 1)
-    return render_template('edit_story.html', story=story, categories=categories)
+    return render_template('edit_story.html',
+                           story=story,
+                           categories=categories)
 
 
 @app.route('/delete_story/<story_id>')
@@ -153,6 +157,20 @@ def delete_story(story_id):
     mongo.db.essays.remove({'_id': ObjectId(story_id)})
     flash('You have deleted a story')
     return redirect(url_for('get_stories'))
+
+
+@app.route('/user/')
+def user():
+    users = mongo.db.users.find().sort('username', 1)
+    writings = list(mongo.db.stories.find().sort('title', 1))
+    return render_template('user.html', users=users, writings=writings)
+
+
+@app.route('/delete_user/<user_id>')
+def delete_user(user_id):
+    mongo.db.users.remove({'_id': ObjectId(user_id)})
+    flash('You have deleted a user')
+    return redirect(url_for('user'))
 
 
 if __name__ == "__main__":

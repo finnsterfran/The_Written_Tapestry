@@ -9,7 +9,7 @@
                     <select class="validate" name="category_name" id="category_name" required>
                         <option value="" disabled selected></option>
                         {% for category in categories %}
-                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            <option class="brown-text text-darken-1" value="{{ category.category_name }}">{{ category.category_name }}</option>
                         {% endfor %}
                     </select>
                     <label>What will you be writing today?</label>

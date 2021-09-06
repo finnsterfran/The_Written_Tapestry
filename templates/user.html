@@ -1,0 +1,34 @@
+{% extends 'base.html' %} 
+{% block content %}
+<h3 class="center-align">Users</h3>
+<div class="row">
+        {% for user in users %}
+            {% if user.username != "administration" %}
+                <div class="col s12 m6">
+                    <div class="card-panel user-card brown lighten-2">
+                        <h4 class="card-title white-text">
+                            {{ user.username }}
+                        </h4>
+                        <p><span class="user-tags">User's Name:</span> {{ user.first_name.capitalize() }} {{ user.last_name.capitalize() }}</p>
+                        <p><span class="user-tags">User's Bio:</span> <br>{{ user.bio }}</p>
+                        <br>
+                        <p><span class="user-tags">Stories Written: </p>
+                        {% for story in writings %}
+                            {% if story.author == user.username %}
+                                    <ul>
+                                        <li>
+                                            📜 {{ story.title }}
+                                        </li>
+                                    </ul>
+                            {% endif %}
+                        {% endfor %}
+                        <br>
+                    <div class="divider"></div>
+                        <br>
+                    <a href="{{ url_for('delete_user', user_id=user._id) }}" class="btn-small waves-effect deep-orange">Delete this User</a>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
