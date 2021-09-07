@@ -1,7 +1,7 @@
 import os
 from flask import (
     Flask, request, render_template,
-    redirect, flash, session, url_for, app)
+    redirect, flash, session, url_for)
 from flask_pymongo import PyMongo
 from datetime import datetime
 from bson.objectid import ObjectId
@@ -15,6 +15,7 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
+
 
 # routes user to home page (default)
 @app.route('/')
@@ -55,7 +56,7 @@ def register():
         if existing_user:
             flash("Someone else has already registered this username.")
             return redirect(url_for('register'))
-        # making sure the user knows the password they have supplied via confirmation
+        # confirm password that has been typed in
         if request.form.get('password') != request.form.get(
                 'confirm_password'):
             flash("Password and Confirm Password MUST match")
@@ -103,7 +104,7 @@ def login():
     return render_template('login.html')
 
 
-# route to log user out 
+# route to log user out
 @app.route("/logout")
 def logout():
     flash("You have been logged out.")
@@ -111,7 +112,7 @@ def logout():
     return redirect(url_for("login"))
 
 
-# route to profile page of user, only viewable by administration and logged in user
+# route to userprofiles, only viewable by administration and logged in user
 @app.route("/profile/<username>/", methods=['GET', 'POST'])
 def profile(username):
     # find the user by username in database
@@ -126,7 +127,7 @@ def profile(username):
     return redirect(url_for("login"))
 
 
-# route to post a new story 
+# route to post a new story
 @app.route('/new_story', methods=['GET', 'POST'])
 def new_story():
     if request.method == 'POST':
@@ -146,7 +147,7 @@ def new_story():
     return render_template('new_story.html', categories=categories)
 
 
-# route to edit an existing story, only editable by original author and administration
+# route to edit an existing story by original author and administration
 @app.route('/edit_story/<story_id>/', methods=['GET', 'POST'])
 def edit_story(story_id):
     if request.method == 'POST':
@@ -171,6 +172,7 @@ def edit_story(story_id):
                            categories=categories)
 
 
+# route to delete a story from the database
 @app.route('/delete_story/<story_id>')
 def delete_story(story_id):
     mongo.db.stories.remove({'_id': ObjectId(story_id)})
@@ -178,6 +180,7 @@ def delete_story(story_id):
     return redirect(url_for('get_stories'))
 
 
+# route to display all users - only if logged in as administration
 @app.route('/user/')
 def user():
     users = mongo.db.users.find().sort('username', 1)
@@ -185,6 +188,7 @@ def user():
     return render_template('user.html', users=users, writings=writings)
 
 
+# route to delete a user - only if logged in as administration
 @app.route('/delete_user/<user_id>')
 def delete_user(user_id):
     mongo.db.users.remove({'_id': ObjectId(user_id)})
