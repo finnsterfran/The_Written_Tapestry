@@ -13,7 +13,7 @@
                 </div>
             </div>
         </div>
-        
+        {% if userstories|length > 0 %}
         <div class="profile-box col s12 m7">
             <ul class="collapsible popout">
                 <div class="center-align">
@@ -21,12 +21,10 @@
                 </div>
                 {% for story in userstories %}
                 <li>
-                    
                     <div class="collapsible-header"><i class="fas fa-glasses"></i>
                         {{ story.title.title() }}
                         <i></i>
                     </div>
-                    
                     <div class="collapsible-body">
                         <small>{{ story.date }}</small>
                         <p>{{ story.composition }}</p>
@@ -35,15 +33,13 @@
                             <br>
                             <a href="{{ url_for('delete_story', story_id=story._id) }}" class="btn-small waves-effect deep-orange">Delete this story</a>
                             <a href="{{ url_for('edit_story', story_id=story._id) }}" class="btn-small waves-effect brown">Edit this Story</a>
-    
                     </div>
-
-    
-                </li>             
+                </li> 
                 {% endfor %}
             </ul>
         </div>
-
+        {% else %}
+            <h5 class="no-story center-align">{{ username.capitalize() }} has yet to write a story. </h5>
+        {% endif %}                     
     </div>
-        
 {% endblock %}

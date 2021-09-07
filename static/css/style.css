@@ -111,6 +111,10 @@ h2 {
     font-family: Pacifico;
 }
 
+.no-story {
+    padding: 2rem 0;
+}
+
 .col-head-title {
     font-size: 1.5rem;
 }
