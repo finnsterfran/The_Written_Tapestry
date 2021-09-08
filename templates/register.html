@@ -46,8 +46,11 @@
                         <label for="bio"><i class="reg-icon fas fa-signature"></i> Write a short Bio</label>
                     </div>
                 </div>
-                <div class="row">
-                    <button type="submit" class="col s10 offset-s1 btn-large brown lighten-1 black-text">
+                <div class="row center-align">
+                    <a href="{{ url_for('register') }}" class="btn-large waves-effect lime darken-4">
+                        Cancel <i class="fas fa-times-circle right"></i>
+                    </a>
+                    <button type="submit" class="btn-large brown">
                         register
                     </button>
                 </div>

@@ -1,0 +1,28 @@
+---THE_WRITTEN_TAPESTRY
+    ---app.py #main .py file to be called to start the server 
+    ---env.py #secret file for MongoDB and Secret key
+    ---.gitignore # list of ignore files for git 
+    ---requirements.txt # file of pip install statements for the app
+    ---Procfile 
+    ---__pycache__
+    ---structure.txt
+    ---README.md # information about this project
+        |--templates
+            |--404.html
+            |--base.html
+            |--edit_story.html
+            |--get_stories.html
+            |--home.html
+            |--login.html
+            |--new_stories.html
+            |--profile.html
+            |--register.html 
+            |--user.html    
+        |--static
+            |--css
+                |--style.css
+            |--js
+                |--script.js
+            |--book.jpg 
+	        |--logo.ico
+            |--useravatar.jpg 

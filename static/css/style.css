@@ -16,13 +16,14 @@ a {
     color: #827717;
 }
 
-a:hover {
-    color: #ab47bc;
+a:hover,
+button:hover {
+    color: #3e2723;
 }
 
 /* Header */
 header {
-    padding: 1.25rem;
+    padding: 1.20rem;
 }
 
 
@@ -38,6 +39,7 @@ h1 {
 
 }
 
+
 .status-tag {
     padding: 20px;
     font-size: 1.2rem;
@@ -47,10 +49,15 @@ h1 {
 h2 {
     font-size: 1.2rem;
     font-weight: 600;
+    margin-top: 1rem;
 }
 
 .flash {
     font-size: 1.3rem;
+}
+
+.stories-types {
+    font-size: 1.8rem;
 }
 
 /* Footer */
@@ -139,8 +146,4 @@ input {
 .user-tags {
     font-weight: 600;
     padding-right: 2rem;
-}
-
-.submitBtn {
-    background-color: #827717 !important;
 }
