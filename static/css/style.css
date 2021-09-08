@@ -39,7 +39,6 @@ h1 {
 
 }
 
-
 .status-tag {
     padding: 20px;
     font-size: 1.2rem;
@@ -58,6 +57,14 @@ h2 {
 
 .stories-types {
     font-size: 1.8rem;
+}
+
+textarea {
+    height: 20rem !important;
+}
+
+input {
+    font-size: 5rem;
 }
 
 /* Footer */
@@ -88,7 +95,6 @@ h2 {
 } 
 
 /* Error 404 */
-
 .error-title {
     font-size: 2.6rem;
 }
@@ -97,14 +103,16 @@ h2 {
     font-size: 1.7rem;
 }
 
+/* Registration */
 .reg-icon {
     padding-right: 0.625px;
 }
 
+/* Profile */
 .profile-img {
-    max-width: 50%;
+    max-width: 60%;
     height: auto;
-    margin: 3rem auto; 
+    margin: 3.5rem auto 2rem; 
 }
 
 .profile-name {
@@ -128,17 +136,8 @@ h2 {
     padding-left: 2rem;
     font-weight: 600;
 }
-.click-it {
-    padding-left: 280px;
-}
 
-textarea {
-    height: 20rem !important;
-}
-
-input {
-    font-size: 5rem;
-}
+/* User Page - Administration View */
 .user-card {
     padding: 2rem 3rem 2.5rem;
 }
