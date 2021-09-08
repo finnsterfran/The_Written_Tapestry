@@ -89,8 +89,8 @@
                 {% if session.user|lower == "administration"|lower %}
                     <li><a href="{{ url_for('user') }}" class=black-text> users</a></li>
                 {% endif %}
-            {% else %}
                 <li><a href="{{ url_for('logout') }}" class="black-text"> log out</a></li> 
+            {% else %}
                 <li><a href="{{ url_for('register') }}" class="black-text"> register</a></li>
                 <li><a href="{{ url_for('login') }}" class="black-text"> login</a></li>
             {% endif %}
