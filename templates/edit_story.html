@@ -25,21 +25,9 @@
                 <label for="title">Title</label>
             </div>
         </div>
-        <!-- <div class="row">
-            <div class="input-field col s10 offset-s1">
-                <input id="author" type="text" class="validate" value="{{ story.author }}" name="author" minlength="2" maxlength="20">
-                <label for="author">Author's Name</label>
-            </div>
-        </div> -->
         <div class="row">
             <div class="input-field col s10 offset-s1">
-                <input id="date" type="date" class="validate" value="{{ story.date }}"  name="date" min="01-01-2021" placeholder="dd-mm-yyyy" maxlength="30-30-2030">
-                <label for="date">Date</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s10 offset-s1">
-                <textarea name="composition" id="composition" cols="100" rows="10" minlength="50" maxlength="500"
+                <textarea name="composition" id="composition" cols="100" rows="10"
                     class="materialize-textarea validate">
                     {{- story.composition -}}
                 </textarea>

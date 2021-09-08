@@ -3,7 +3,7 @@ from flask import (
     Flask, request, render_template,
     redirect, flash, session, url_for)
 from flask_pymongo import PyMongo
-from datetime import datetime
+from datetime import datetime, date
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
@@ -67,7 +67,7 @@ def register():
             'first_name': request.form.get('first_name').lower(),
             'last_name': request.form.get('last_name').lower(),
             'password': generate_password_hash(request.form.get('password')),
-            'date_joined': datetime.now()
+            'date_joined': datetime.now().strftime("%Y-%m-%d")
         }
         mongo.db.users.insert_one(register)
         # Put new user into a session cookie
@@ -134,7 +134,7 @@ def new_story():
         submit = {
             "title": request.form.get('title'),
             "author": session['user'],
-            "date": request.form.get('date'),
+            'date': datetime.now().strftime("%Y-%m-%d"),
             "category_name": request.form.get('category_name'),
             "composition": request.form.get('composition')
         }
@@ -154,7 +154,7 @@ def edit_story(story_id):
         submit = {
                 'title': request.form.get('title'),
                 'author': session['user'],
-                'date': request.form.get('date'),
+                'date': datetime.now().strftime("%Y-%m-%d"),
                 'category_name': request.form.get('category_name'),
                 'composition': request.form.get('composition')
         }
@@ -199,4 +199,4 @@ def delete_user(user_id):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=False)
+            debug=True)
