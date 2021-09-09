@@ -6,7 +6,7 @@
             {% if user.username != "administration" %}
                 <div class="col s12 m6">
                     <div class="card-panel user-card brown lighten-2">
-                        <h4 class="card-title white-text">
+                        <h4 class="card-title user-name white-text">
                             {{ user.username }}
                         </h4>
                         <p><span class="user-tags">User's Name:</span> {{ user.first_name.capitalize() }} {{ user.last_name.capitalize() }}</p>

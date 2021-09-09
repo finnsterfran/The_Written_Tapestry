@@ -138,6 +138,7 @@ input {
 .profile-name {
     font-size: 1.8rem;
 }
+
 .no-story {
     padding: 2rem 0;
 }
@@ -164,5 +165,9 @@ input {
 .user-tags {
     font-weight: 600;
     padding-right: 2rem;
+}
+
+.user-name {
+    font-size: 1.9rem;
 }
 
