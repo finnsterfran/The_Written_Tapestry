@@ -10,6 +10,7 @@ body {
 
 .container {
     width: 90%;
+    height: auto;
 }
 
 a {
@@ -19,6 +20,8 @@ a {
 a:hover,
 button:hover {
     color: #3e2723;
+    margin: 10px;
+
 }
 
 /* Header */
@@ -36,7 +39,27 @@ h1 {
     font-size: 2rem;
     margin: auto;
     padding: 1.2rem;
+}
 
+h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+h3 { 
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding-bottom: 1rem;
+}
+
+button {
+    margin: 10px;
+    width: 155px;
+}
+
+.button-tag {
+    margin-bottom: 10px;
 }
 
 .status-tag {
@@ -45,11 +68,7 @@ h1 {
 }
 
 /* Main */
-h2 {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-top: 1rem;
-}
+
 
 .flash {
     font-size: 1.3rem;
@@ -83,7 +102,7 @@ input {
 
 .post-card {
     width: 100%;
-    padding: 5rem;
+    padding: 1rem;
 }
 
 .writing {
@@ -91,7 +110,8 @@ input {
 }
 
 .post-container {
-    padding-top: 2rem;
+    padding-top: 1.4rem;
+    width: 100%;
 } 
 
 /* Error 404 */
@@ -107,6 +127,7 @@ input {
 .reg-icon {
     padding-right: 0.625px;
 }
+
 
 /* Profile */
 .profile-img {
@@ -137,6 +158,7 @@ input {
     font-weight: 600;
 }
 
+
 /* User Page - Administration View */
 .user-card {
     padding: 2rem 3rem 2.5rem;
@@ -146,3 +168,4 @@ input {
     font-weight: 600;
     padding-right: 2rem;
 }
+

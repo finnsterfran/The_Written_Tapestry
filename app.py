@@ -3,7 +3,7 @@ from flask import (
     Flask, request, render_template,
     redirect, flash, session, url_for)
 from flask_pymongo import PyMongo
-from datetime import datetime, date
+from datetime import datetime
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):

@@ -2,7 +2,7 @@
 {% block content %}
     <h3 class="center-align">Register Here!</h3>
     <div class="row register">
-        <form class="col s12 m10 offset-m1 l8 offset-l2" method="POST" action="{{ url_for('register') }}">
+        <form class="col s12 m10 offset-m1 l8 offset-l2 center-align" method="POST" action="{{ url_for('register') }}">
             <div class="card-panel register-card z-depth-4">
                 <div class="row">
                     <div class="input-field col s10 offset-s1">
@@ -46,14 +46,14 @@
                         <label for="bio"><i class="reg-icon fas fa-signature"></i> Write a short Bio</label>
                     </div>
                 </div>
-                <div class="row center-align">
+                
                     <a href="{{ url_for('register') }}" class="btn-large waves-effect lime darken-4">
                         Cancel <i class="fas fa-times-circle right"></i>
                     </a>
                     <button type="submit" class="btn-large brown">
                         register
                     </button>
-                </div>
+                
             </div>
         </form>
     </div>

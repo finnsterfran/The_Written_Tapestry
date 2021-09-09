@@ -2,10 +2,10 @@
 {% block content %}
     <div class="post-container row card brown lighten-5 post-card">
         <h3 class="center-align">Let's start writing!</h3>
-        <form class="col s12 m10 offset-m1 post" method="POST" action="{{ url_for('new_story') }}">
+        <form class="col s12 m10 offset-m1" method="POST" action="{{ url_for('new_story') }}">
  <!--Select Category-->           
             <div class="row">
-                <div class="input-field col s10 offset-s1">
+                <div class="input-field col s12">
                     <select class="validate" name="category_name" id="category_name" required>
                         <option value="" disabled selected></option>
                         {% for category in categories %}
@@ -17,14 +17,14 @@
             </div>
 <!--Title of post-->
             <div class="row">
-                <div class="input-field col s10 offset-s1">
+                <div class="input-field col s12">
                     <input id="title" type="text" class="validate" name="title" minlength="2" maxlength="50" required>
                     <label for="title">Title</label>
                 </div>
             </div>
 <!--Post-->            
             <div class="row">
-                <div class="input-field col s10 offset-s1">
+                <div class="input-field col s12 m10 offset-m1">
                     <textarea name="composition" id="composition"  
                         class="materialize-textarea validate" required></textarea>
                     <label for="composition">Start Writing here</label>
@@ -32,12 +32,12 @@
             </div>
 <!--Submit button-->
             <div class="row">
-                <div class="col s12 center-align">
+                <div class="col s12 center-align button-box">
                     <a href="{{ url_for('new_story') }}" class="btn-large waves-effect lime darken-4">
                         Cancel <i class="fas fa-times-circle right"></i>
                     </a>
                    <button class="btn-large waves-effect brown" type="submit">
-                       Submit Your Story
+                       Submit <i class="far fa-paper-plane"></i>
                    </button>
                 </div>
             </div>
