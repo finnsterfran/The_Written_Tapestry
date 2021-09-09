@@ -85,6 +85,37 @@ View this project here: &nbsp; &nbsp; [The Written Tapestry](https://the-written
 
 
 ## Commits 
+* Commit 1 : create project skeleton - templates and static folder, app.py, env.py, requirements.txt, Procfile
+* Commit 2 : create home.html. implement html for base.html, add styling in style.css
+* Commit 3 : create board.html, login.html, profile.html, register.html. add views to app.py
+* Commit 4 : layout adjustment for board.html
+* Commit 5 : create new_post(add a Story). add url_for in base.html for registration, profile, new-post
+* Commit 6 : make some minor tweaks to new_post.html and style.css
+* Commit 7: create 404.html and error view in app.py. size change for register form. add icons to register.html and login.html
+* Commit 8: add confirm password to register.html and app.py route for register.
+* Commit 9: add useravatar image for profile.html and update its style in css. realign cards in profile.html.
+* Commit 10: enable view for profile.html to display post by user. 
+* Commit 11: add content to home.html. set card size to small for standardization of space and size throughout the grid.
+* Commit 12: add edit_post.html. change size of logo.
+* Commit 13: make user.html, this page is only accessible by administration. linked up search function. add header on all page to show what username is currently logged in. add materialize javascript code for selecting category name. admininstration received button with option to delete user and post.
+* Commit 14: fix search functionality to allow search by category name, author, title and keywords. fix deletion of story, it did not delete from database. add deletion confirmation prompt to deletion button.
+* Commit 15: add comments to app.py
+* Commit 16: add a message in profile that informs if user has any story post, so that space will not be empty if there aren't any stories by this user.
+* Commit 17: remove logo image. adjust placement of logo-brand.
+* Commit 18: add structure.txt file. standardize the colors of all the buttons through the project. adjust layout of stories in get_stories.html
+* Commit 19: Change debug to False
+* Commit 20: fix date formate for registration, edit_story, new_story. remove date input for edit_story and new_story as this will be automatically generated for the db using datetime module. fix max character of story for edit_story
+* Commit 21: change debug back to False again after switching it to True to make some minor testing of datetime
+* Commit 22: change useravatar img, format style sheet
+* Commit 23: add readme folder to store images for readme.md. resize profile image asa the bottom gets cut off. work on readme.md
+* Commit 24: move link to log out in mobile view up to the correct line, it was out of the correct if statement block
+* Commit 25: fix spacing and alignment for buttons on mobile screen. add if statement to hide registration link from session users
+* Commit 26: possible fix for problem with log in format on mobile screen. user was unable to log in due to format match
+* Commit 27: reduce the size for H3
+* Commit 28: fix size of profile name in card of profile page, it was too wide and the end gets cut off if the name exceeds a certain number of characters
+* Commit 29: fix font size for user.html. reduce max characters for username in registration
+
+
 
 
 ## Credits 
