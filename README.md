@@ -71,8 +71,8 @@ View this project here: &nbsp; &nbsp; [The Written Tapestry](https://the-written
     * Box list of users with button to delete user.
 
 # 4. Skeleton 
-* Wireframes:
-
+## Click [Wireframes](WIREFRAME.md) to view the wireframes.
+<br>
 
 # 5. Surface
 
