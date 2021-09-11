@@ -2,7 +2,6 @@
 # The Written Tapestry
 
 
-
 ![Responsive-Screens](README_images/responsivecheck_website.png)
 
 This project features a website for short-story writing. User registration of an account is required for stories to be posted. 
@@ -13,7 +12,7 @@ View this project here: &nbsp; &nbsp; [The Written Tapestry](https://the-written
 
 # User Story
 
-## Vistor to the website 
+## Visitor to the website 
 * I want to know what this website is about at first glance.
 * I like to write short stories and want a place to showcase my writing.
 * I want the colors to be soft and easy to the eyes as I could stay on this website for a stretch of time.
@@ -21,13 +20,15 @@ View this project here: &nbsp; &nbsp; [The Written Tapestry](https://the-written
 * I want to search for stories that have been posted.
 * I do not want any other writers to delete or edit my writing. 
 
+
 ### These goals are accomplished via:
 * The story board features all writings posted onto the website by all the authors.
 * The stories are searchable through author, category names and keywords.
 * In logged in view, story board post will have the option of edit and delete for post of the user that is logged in. 
 * Author's profile page is only accessible by user when logged in and features a list of all the stories posted by only this author which they are then able to edit and/or delete.
 
-<hr>
+
+<br>
 
 # 1. Strategy
 * The target users to this website are people who like to write, or read short stories. 
@@ -38,12 +39,16 @@ View this project here: &nbsp; &nbsp; [The Written Tapestry](https://the-written
 * Only the owner of a post and administration have the ability to delete or edit said post.
 * Provide some information about the different types of short stories.
 
+<br>
+
 # 2. Scope 
 * Landing page features short description of types of short stories.
 * Intent of the website is made clear from the first sentence.
 * Registration is easy with just inputs of username, first & last names and a short bio. 
 * Edit and deletion of post by owner of post via profile page and also on story board page.
 * Administration can delete users and post.
+
+<br>
 
 # 3. Structure
 * Consistant feature across all pages are:
@@ -70,18 +75,122 @@ View this project here: &nbsp; &nbsp; [The Written Tapestry](https://the-written
     * Viewable only when logged in as administration.
     * Box list of users with button to delete user.
 
+<br>
+
 # 4. Skeleton 
-## Click [Wireframes](WIREFRAME.md) to view the wireframes.
+## Click [Wireframes](WIREFRAME.md) to view the wireframes. 
+
 <br>
 
 # 5. Surface
 
 ## Colors:
-* Background for all pages is *white*
+* Background for all pages is *white* 
+* Fonts mostly *black* 
 
-* Button colors:
-    
-# 
+* Color scheme: Selected from materializecss color chart
+
+![brown](README_images/color_brown.png)
+
+![brown](README_images/color_brown_lighten-1.png)
+
+![brown](README_images/color_brown_lighten-2.png)
+
+![brown](README_images/color_brown_lighten-3.png)
+
+![brown](README_images/color_brown_lighten-4.png)
+
+![brown_darken-1](README_images/color_brown_darken-1.png)
+
+![deep_orange](README_images/color_deep-orange.png)
+
+![lime_darken-4](README_images/color_lime_darken-4.png)
+
+<br>
+
+## Typography:
+* From Google Fonts - 
+    * Pacifico 
+    * Nunito - 200, 300, 400, 600
+
+<br>
+
+## Icons/Images:
+* All icons are from [Font Awesome](https://fontawesome.com/)
+* Home page image is from [Unsplash](https://unsplash.com/)
+* Useravatar png is from [PngAAA](https://www.pngaaa.com/)
+
+<br>
+
+## Information Architecture 
+* This project uses MongoDB Atlas, a cloud NoSQL database.
+
+![DATA-SCHEMA](README_images/the_written_tapestry-schema.png)
+
+<br>
+
+# Features 
+## Navigation bar
+* The links on the navigation bars changes depending if user is logged in or user is administration.
+* Standard homepage navigation links are:
+    * home
+    * board - display of stories that have been posted by users
+    * register - form to register as a new user
+    * login - for registered users to log in
+
+* WHen user is logged in, the navigation bar will display:
+    * home
+    * board
+    * add a Story
+    * profile - user profile page that shows all the post of logged in user
+    * log out
+    * test user:
+        * username: wookiepants
+        * password: 12345678
+
+* When user is Administration, the navigation bar will display:
+    * home
+    * board
+    * add a Story
+    * profile 
+    * user 
+    * log out
+    * test Administration: 
+        * username: administration
+        * password: administration3
+
+## Homepage 
+* Brief introduction to the website and its purpose. With enclosed link to registration page, this features does not appear when user is already logged in.
+* Brief information about the different types of short stories. 
+
+## Board 
+* Search feature to find story through keywords, author, title and category. 
+* All stories from users, listed alphabetically by title.
+    * When user is logged in, user can only edit or delete their own stories.
+    * When administration is logged in, administration can edit and delete any of the stories.
+
+## Registration 
+* Form for new users to register an account, requiring these inputs: 
+    * username
+    * first name
+    * last name
+    * password
+    * confirm password
+
+## Login 
+* Form to log registered users in, requiring input of username and password.
+
+## Add a Story 
+* Form to create and post a new story, user log in is required for this page to be available. 
+* Inputs required: 
+    * title
+    * category, selected from a dropdown list of choices
+    * composition
+        
+## Edit a Story 
+* This page is accessible via board and profile pages.
+
+
 
 
 ## Commits 
