@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <select class="validate" name="category_name" id="category_name" required>
-                        <option value="" disabled selected></option>
+                        <option value="" disabled selected>Pick a category</option>
                         {% for category in categories %}
                             <option class="brown-text text-darken-1" value="{{ category.category_name }}">{{ category.category_name }}</option>
                         {% endfor %}
