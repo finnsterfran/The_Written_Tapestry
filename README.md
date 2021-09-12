@@ -180,6 +180,9 @@ View this project here: &nbsp; &nbsp; [The Written Tapestry](https://the-written
 ## Login 
 * Form to log registered users in, requiring input of username and password.
 
+## Log out 
+* Button to exit logged in state will appear when user is logged in.
+
 ## Add a Story 
 * Form to create and post a new story, user log in is required for this page to be available. 
 * Inputs required: 
@@ -190,10 +193,70 @@ View this project here: &nbsp; &nbsp; [The Written Tapestry](https://the-written
 ## Edit a Story 
 * This page is accessible via board and profile pages.
 
+## Features Left to Implement
+* A link to each story type on the homepage that will bring user to a page with all stories in that category.
+* User option to change avatar pictures, preferably from a predetermined set of avatar images so as to keep the profile page visually uniformed.
+* Add more profile details with possibility for users to change these details.
+* A community message board for users to communicate with each other.
+* Possibilty of changing password should the user forget it. This will require registration of a primary email when making a new account, or updating this input in existing accounts.
+
+<br>
+
+# Technoglogies Used
+## Languages:
+* [HTML5](https://en.wikipedia.org/wiki/HTML) 
+* [CSS3](https://en.wikipedia.org/wiki/CSS) 
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+* [Python3](https://en.wikipedia.org/wiki/Python_(programming_language))
+* [Jinja2](https://jinja.palletsprojects.com/en/3.0.x/) 
+
+## Frameworks:
+* [Flask](https://flask.palletsprojects.com/en/2.0.x/) 
+* [MaterializeCSS](https://materializecss.com/) 
+    * [jQuery](https://jquery.com/) 
+
+## Vital Tools: 
+* Database:
+    * [MongoDB Atlas](https://www.mongodb.com/)
+        * [PyMongo](https://pymongo.readthedocs.io/en/stable/) 
+* Deployment platform:
+    * [Heroku](https://heroku.com/)
+* Workspace and Version Control: 
+    * [GitHub](https://github.com/)
+    * [Git](https://git-scm.com/)
+    * [Gitpod](https://gitpod.io)
+* Others:
+    * [Quick DBD](https://app.quickdatabasediagrams.com) - To design dataschema
+    * [RandomKeygen](https://randomkeygen.com/) - To generate a secret key
+    * [Am I Responsive?](http://ami.responsivedesign.is/) - To check appearance of responsiveness across all devices
+
+<br>
 
 
 
-## Commits 
+
+
+
+
+
+# Credits 
+## Code
+* Code institute tutorial by Tim Nelson
+
+## Content
+* Web Content 
+    * [Masterclass](https://www.masterclass.com/articles/how-to-write-a-great-short-story-writing-tips-and-exercises-for-story-ideas)
+    * [Awaiting the Muse](https://awaitingthemuse.wordpress.com/)
+    * [Wikipedia](https://www.wikipedia.org/)
+
+## Acknowledgement 
+* My mentor Excellence Illesanmi for his guidance from project start to finish line.
+* Tutors (Kevin, Igor) from Code Institute who pointed me in the right direction so I could figure out for myself what I was doing wrong in my codes.
+
+<hr>
+
+# Commits 
+
 * Commit 1 : create project skeleton - templates and static folder, app.py, env.py, requirements.txt, Procfile
 * Commit 2 : create home.html. implement html for base.html, add styling in style.css
 * Commit 3 : create board.html, login.html, profile.html, register.html. add views to app.py
@@ -225,18 +288,4 @@ View this project here: &nbsp; &nbsp; [The Written Tapestry](https://the-written
 * Commit 29: fix font size for user.html. reduce max characters for username in registration
 
 
-
-
-## Credits 
-
-### Content
-* awaitingthemuse.wordpress.com
-* wikipedia
-
-useravatar png 
-https://www.pngaaa.com/
-
-### Testing
-
-w
 
