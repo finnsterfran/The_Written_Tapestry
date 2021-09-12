@@ -8,7 +8,9 @@ This project features a website for short-story writing. User registration of an
 
 View this project here: &nbsp; &nbsp; [The Written Tapestry](https://the-written-tapestry.herokuapp.com/)
 
-#UX 
+Repository can be found here : [The Written Tapestry](https://github.com/finnsterfran/The_Written_Tapestry)
+
+<hr>
 
 # User Story
 
@@ -126,6 +128,16 @@ View this project here: &nbsp; &nbsp; [The Written Tapestry](https://the-written
 * This project uses MongoDB Atlas, a cloud NoSQL database.
 
 ![DATA-SCHEMA](README_images/the_written_tapestry-schema.png)
+### This database contains 3 collections of data:
+    * category
+    * stories
+    * users
+
+1. category lends itself as the field 'category_name' in the stories collection.
+    * when user creates a story, they select a category_name out of the category collection
+2. users lends itself as a field titled "author" in stories
+    * user has to log in when creating a story
+    * when user creates a story, session user is automatically recorded as the author when creating a new story
 
 <br>
 
@@ -235,6 +247,12 @@ View this project here: &nbsp; &nbsp; [The Written Tapestry](https://the-written
 # Testing
 ## Click [Testing](testing.md) to read the testing process.
 
+<br>
+
+# Deployment 
+## Click [Deployment](deployment.md) to read the deployment process.
+
+<br>
 
 # Credits 
 ## Code
@@ -293,7 +311,7 @@ View this project here: &nbsp; &nbsp; [The Written Tapestry](https://the-written
 * Commit 37: add text between option element for select in form in new_stories.html
 * Commit 38: add missing closing tag for span
 * Commit 39: add screenshots and complete testing.md
+* Commit 40: create and add deployment.md, filled in rest of readme.md
 
-
-
-
+<hr>
+End of Page
