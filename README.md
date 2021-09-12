@@ -233,7 +233,7 @@ View this project here: &nbsp; &nbsp; [The Written Tapestry](https://the-written
 <br>
 
 # Testing
-## Click here to read the testing process.
+## Click [Testing](testing.md) to read the testing process.
 
 
 # Credits 
@@ -286,6 +286,13 @@ View this project here: &nbsp; &nbsp; [The Written Tapestry](https://the-written
 * Commit 30: write up commits section in readme.md
 * Commit 31: create wireframes.md. add images to readme-images folder
 * Commit 32: add color png images to readme document
+* Commit 33: fix element misplacement in get-stories.html
+* Commit 34: change element tag in base.html from section to div 
+* Commit 35: add a header in get_stories.html
+* Commit 36: move col-head-title out from within ul element
+* Commit 37: add text between option element for select in form in new_stories.html
+* Commit 38: add missing closing tag for span
+* Commit 39: add screenshots and complete testing.md
 
 
 
