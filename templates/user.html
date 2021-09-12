@@ -12,7 +12,7 @@
                         <p><span class="user-tags">User's Name:</span> {{ user.first_name.capitalize() }} {{ user.last_name.capitalize() }}</p>
                         <p><span class="user-tags">User's Bio:</span> <br>{{ user.bio }}</p>
                         <br>
-                        <p><span class="user-tags">Stories Written: </p>
+                        <p><span class="user-tags">Stories Written: </span></p>
                         {% for story in writings %}
                             {% if story.author == user.username %}
                                     <ul>
