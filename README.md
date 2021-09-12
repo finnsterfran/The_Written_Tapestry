@@ -267,6 +267,7 @@ Repository can be found here : [The Written Tapestry](https://github.com/finnste
 ## Acknowledgement 
 * My mentor Excellence Illesanmi for his guidance from project start to finish line.
 * Tutors (Kevin, Igor) from Code Institute who pointed me in the right direction so I could figure out for myself what I was doing wrong in my codes.
+* Slack community peer-review for pointing out bugs for me to fix. 
 
 <hr>
 
