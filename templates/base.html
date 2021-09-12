@@ -98,7 +98,7 @@
 </header>
 
 <!--Flash Messages-->
-<section>
+<div>
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages%} 
@@ -111,7 +111,7 @@
     {% if session.user %}
         <p class="center-align status-tag brown-text text-lighten-1">You are logged in as {{ session.user.capitalize() }}</p>  
     {% endif %}     
-</section>
+</div>
 
 <main class="container">
     {% block content %} 
