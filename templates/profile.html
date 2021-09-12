@@ -7,18 +7,16 @@
                     <img class="profile-img" src="{{ url_for('static', filename='useravatar.png') }}" alt="default user icon image">
                 </div>
                 <div class="card-content black-text">
-                    <span class="profile-card card-title">
-                        <h3 class="profile-name">{{ username.capitalize() }}</h3>
+                    <span class="profile-card card-title profile-name">
+                        {{ username.capitalize() }}
                     </span>
                 </div>
             </div>
         </div>
+        <h4 class="col-head-title center-align">Pieces by {{ username.capitalize() }}</h4>
         {% if userstories|length > 0 %}
         <div class="profile-box col s12 m7">
             <ul class="collapsible popout">
-                <div class="center-align">
-                    <h4 class="col-head-title">Pieces by {{ username.capitalize() }}</h4>
-                </div>
                 {% for story in userstories %}
                 <li>
                     <div class="collapsible-header"><i class="fas fa-glasses"></i>

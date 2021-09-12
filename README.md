@@ -232,11 +232,8 @@ View this project here: &nbsp; &nbsp; [The Written Tapestry](https://the-written
 
 <br>
 
-
-
-
-
-
+# Testing
+## Click here to read the testing process.
 
 
 # Credits 
@@ -286,6 +283,10 @@ View this project here: &nbsp; &nbsp; [The Written Tapestry](https://the-written
 * Commit 27: reduce the size for H3
 * Commit 28: fix size of profile name in card of profile page, it was too wide and the end gets cut off if the name exceeds a certain number of characters
 * Commit 29: fix font size for user.html. reduce max characters for username in registration
+* Commit 30: write up commits section in readme.md
+* Commit 31: create wireframes.md. add images to readme-images folder
+* Commit 32: add color png images to readme document
+
 
 
 
