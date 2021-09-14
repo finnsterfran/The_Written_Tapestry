@@ -61,13 +61,12 @@ Repository can be found here : [The Written Tapestry](https://github.com/finnste
 4. Set up configuration variables in Heroku
     * In settings, scroll down to 'Reveal Config Vars'
     * Inputs:
-        Variable | Value
-        ---------|------
-        IP | 0.0.0.0
-        PORT | 5000
-        MONGO_DBNAME | (**database name**)
-        MONGO_URI | (**url that was copied from the database connection**)
-        SECRET_KEY | (**secret key that was generated for this app**)
+        * IP | 0.0.0.0
+        * PORT | 5000
+        * MONGO_DBNAME | (**database name**)
+        * MONGO_URI | (**url that was copied from the database connection**)
+        * SECRET_KEY | (**secret key that was generated for this app**)
+
 
 5. Push requirements.txt and Profile to Github 
     * git add -A 
