@@ -156,9 +156,7 @@ Repository can be found here : [The Written Tapestry](https://github.com/finnste
     * add a Story
     * profile - user profile page that shows all the post of logged in user
     * log out
-    * test user:
-        * username: wookiepants
-        * password: 12345678
+
 
 * When user is Administration, the navigation bar will display:
     * home
@@ -167,9 +165,7 @@ Repository can be found here : [The Written Tapestry](https://github.com/finnste
     * profile 
     * user 
     * log out
-    * test Administration: 
-        * username: administration
-        * password: administration3
+
 
 ## Homepage 
 * Brief introduction to the website and its purpose. With enclosed link to registration page, this features does not appear when user is already logged in.
